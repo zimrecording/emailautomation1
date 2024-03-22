@@ -20,7 +20,7 @@ def draftingemails(email, openai_api_key):
     1. Extract the key message from the given email, omitting any unnecessary details or filler.
     2. Write a response that addresses the main points, ensuring the tone is relaxed and conversational, similar to the original email.
     3. Include a subject line that fits the context.
-    4. Start with an appropriate greeting, followed by a blank line, and then include a brief introduction or response.
+    4. Start with an appropriate greeting, followed by a blank line, and then include a brief introduction or response ,make sure to not put your own names that are not given in the original emsail.
     5. Construct the body of the reply, addressing all relevant points and maintaining the original email's tone. Conclude the body of the email with a positive note or a thank you.
     6. End with a closing that matches the email's tone, followed by a blank line. Then, ensure your name is placed on its own in the last sentence, effectively serving as a personalized sign-off.
     7. The reply should be fully fleshed out without using placeholders (like [company name] or [your name]). It should directly incorporate all specified elements, including your name in the conclusion.
