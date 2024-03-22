@@ -5,7 +5,6 @@ import streamlit as st
 def draftingemails(email, openai_api_key):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "ft:gpt-3.5-turbo-1106:personal:email2:95ARg6mi"
-
     headers = {
         "Authorization": f"Bearer {openai_api_key}"
     }
