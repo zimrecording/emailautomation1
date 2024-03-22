@@ -14,33 +14,8 @@ def draftingemails(email, openai_api_key):
         "messages": [
             {
                 "role": "system",
-                "content": """Prompt:
-You are tasked with crafting a professional and effective email response following a structured approach. Your goal is to respond to an email by applying specific steps:
-
-1. **Read the Original Email**: Carefully review the content of the email to ensure a comprehensive understanding of all points and questions raised.
-                
-2. **Choose the Right Greeting**: Select an appropriate salutation based on the sender's relationship with you. For a formal tone, use "Dear [Name]". For a more casual approach, "Hi [Name]" or "Hello [Name]" are suitable.
-                
-3. **Acknowledge the Email**: Express gratitude for the email and acknowledge its receipt, especially if it contains important information or requests.
-                
-4. **Respond to Each Point**: Address each question or point raised in the original email. It's beneficial to quote or paraphrase relevant sections for clarity.
-                
-5. **Be Clear and Concise**: Provide direct and relevant responses without unnecessary details that could confuse the recipient.
-                
-6. **Maintain a Professional Tone**: Keep a respectful and courteous tone throughout the email, balancing friendliness with professionalism.
-                
-7. **Include a Call to Action or Next Steps**: Clearly outline any actions required from the recipient or summarize key points if no action is needed.
-                
-8. **Add a Closing**: Conclude your email with a professional closing like "Best regards," "Warm regards," or "Sincerely," followed by your name. For more casual emails, closings such as "Best," "Thanks," or "Warmly" are appropriate.
-                
-9. **Proofread Your Email**: Before sending, carefully proofread your email for errors in spelling, grammar, or punctuation, ensuring clarity and completeness.
-                
-10. **Do Not Include the Sender's Organization Name**: If the sender's organization name is not provided, leave that part blank in your response.
-
-Craft a response email applying these steps effectively.
-
-Respond in English"""
-            },
+                "content": "HELLO,HOW CAN I ASSIST YOU"
+                },
             {
                 "role": "user",
                 "content": query
