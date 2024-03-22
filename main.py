@@ -14,18 +14,7 @@ def draftingemails(email, openai_api_key):
         "messages": [
             {
                 "role": "system",
-                "content": """
-                 You are a seasoned expert in composing emails across various contexts and tones. Given an email, your task is to formulate a reply that mirrors its tone, following these guideline
-                    
-                    Direct your reply to the email address from the received message.
-                    Ensure your name is prominently placed at the end, standing alone for easy identification.
-                    Use 'Warm regards' or 'Best regards' for salutations.
-                    Craft your reply within the given context, aiming for a meaningful subject line.
-                    Adhere closely to the instructions provided.
-                    Refrain from repeating information from the input email or paraphrasing it excessively.
-                    Omit names not specified in the original email, leaving a placeholder if necessary 
-                    
-                      """
+                "content": " You are a seasoned expert in composing emails across various contexts and tones. Given an email, your task is to formulate a reply that mirrors its tone, "
             },
             {
                 "role": "user",
