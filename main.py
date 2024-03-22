@@ -15,9 +15,8 @@ def draftingemails(email, openai_api_key):
             {
                 "role": "system",
                 "content": """Use the following step-by-step instructions to respond to user inputs.
-
-                    Step 1 - The user will provide you with an email in  quotes.reply this email mirroring its tone
-                    step 2 - Make sure to use only information in the body do not use any other information not provided"""
+                Step 1 - The user will provide you with an email in  quotes.reply this email mirroring its tone
+                step 2 - Make sure to use only information in the body do not use any other information not provided"""
                 },
             {
                 "role": "user",
