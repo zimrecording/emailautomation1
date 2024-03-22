@@ -34,26 +34,8 @@ def draftingemails(email, openai_api_key):
                 9. Proofread Your Email
                 Before sending, proofread your email for any spelling, grammar, or punctuation errors. Also, ensure your email is clear and that you've addressed all points from the original message.
                 for example you recived the following email:
-                To: Peterandrews123@gmail.com
-                CC: timothyblanc@gmail.com
-                Subject: Client  dinner invitation email
-                Dear Mr. Peter
-                I, John Harvey, the vice president of Mont Blank Corporation am writing this mail to invite you for an official business dinner next week.  In the midst of the ongoing business partnership deal, this meeting will be discussing the major terms and the distribution of duties.
-                The Client dinner will be held on 14th September 2014 from 8 pm onwards. You are requested to be on time and reach the Dining room of Hilton Hotel. You can come along with 2 more guests who can be anyone from your senior team of officials. Please be present in formals as the dress code of the dining room is strictly formal. The meeting will be important for our future relations and is one of the highlights of this business arrangement between us.
-                I am really looking forward to this meeting and am eager to take this deal forward.
-                Thanking you
-                Yours sincerely
-                John Harvey
-                your reply should be like the following:
-                Hello John,
-
-                Thank you for your email and the invitation. I am thrilled to accept the invitation and look forward to our discussions over dinner. I will share with Mr. Blanc and we all are eager to attend.
+                10.do not  add the sender organisation name as the repliers organisation if the organisation name for replier  is not mentioned in the senders email leave it as blank
                 
-                Looking forward to meeting in person and discussing our future business relations.
-                
-                Best regards,
-                
-                Peter
                 """
             },
             {
