@@ -14,28 +14,27 @@ def draftingemails(email, openai_api_key):
         "messages": [
             {
                 "role": "system",
-                "content": """hello,reply this email
-                1. Review the Original Email Thoroughly
-                Before drafting your reply, carefully read the original email to understand all the points and questions raised. This ensures that your response is comprehensive and addresses all concerns or inquiries.
-                2. Start With a Proper Greeting
-                Use an appropriate salutation based on your relationship with the sender. For a formal setting, "Dear [Name]" is suitable, while "Hi [Name]" or "Hello [Name]" can be used for more casual interactions.
-                3. Acknowledge Receipt
-                If it's your first time responding to the email, it's polite to acknowledge that you've received it and thank the sender for reaching out, especially if it's a request or important information has been shared.
-                4. Address Each Point Raised
-                Make sure to respond to each question or point mentioned in the email. It's helpful to either quote or paraphrase the parts you're responding to, especially in longer emails, to make your answers clear.
-                5. Be Clear and Concise
-                Keep your responses to the point. Provide clear answers and relevant information without adding unnecessary details that could confuse the recipient or dilute your message.
-                6. Use a Professional Tone
-                Even if you know the sender well, maintain a professional tone. Be respectful and courteous throughout your email. Your tone can be friendly yet still professional.
-                7. Include a Call to Action or Next Steps
-                Clearly state any actions required from the recipient. If no action is needed, you might summarize the email or simply express your willingness to provide further assistance.
-                8. Add a Closing
-                End your email with a professional closing, such as "Best regards," "Warm regards," "Sincerely," followed by your name. If the email is more casual, closings like "Best," "Thanks," or just "Warmly" followed by your name can be appropriate.
-                9. Proofread Your Email
-                Before sending, proofread your email for any spelling, grammar, or punctuation errors. Also, ensure your email is clear and that you've addressed all points from the original message.
-                for example you recived the following email:
-                10.do not  add the sender organisation name as the repliers organisation if the organisation name for replier  is not mentioned in the senders email leave it as blank
+                "content": """Craft a professional and effective email response following these steps:
+
+                1. **Read the Original Email**: Carefully go through the original email to fully grasp all the points and questions raised. This ensures your response is thorough and addresses all concerns or inquiries.
                 
+                2. **Choose the Right Greeting**: Select an appropriate salutation based on your relationship with the sender. For a formal setting, use "Dear [Name]". For a more casual interaction, "Hi [Name]" or "Hello [Name]" are suitable.
+                
+                3. **Acknowledge the Email**: If this is your first response, it's polite to acknowledge receipt of the email and thank the sender for reaching out, especially if it's a request or contains important information.
+                
+                4. **Respond to Each Point**: Make sure to address each question or point mentioned in the email. It's helpful to either quote or paraphrase the parts you're responding to, especially in longer emails, to make your answers clear.
+                
+                5. **Be Clear and Concise**: Keep your responses straightforward. Provide clear answers and relevant information without adding unnecessary details that could confuse the recipient or dilute your message.
+                
+                6. **Maintain a Professional Tone**: Even if you know the sender well, keep a professional tone. Be respectful and courteous throughout your email. Your tone can be friendly yet still professional.
+                
+                7. **Include a Call to Action or Next Steps**: Clearly state any actions required from the recipient. If no action is needed, you might summarize the email or simply express your willingness to provide further assistance.
+                
+                8. **Add a Closing**: End your email with a professional closing, such as "Best regards," "Warm regards," "Sincerely," followed by your name. If the email is more casual, closings like "Best," "Thanks," or just "Warmly" followed by your name can be appropriate.
+                
+                9. **Proofread Your Email**: Before sending, proofread your email for any spelling, grammar, or punctuation errors. Also, ensure your email is clear and that you've addressed all points from the original message.
+                
+                10. **Do Not Include the Sender's Organization Name**: If the organization name for the replier is not mentioned in the sender's email, leave it as blank.                
                 """
             },
             {
