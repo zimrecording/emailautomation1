@@ -21,10 +21,9 @@ def draftingemails(email, openai_api_key):
             {
                 "role": "user",
                 "content": query,
-                "temprature":0.8
-                
             }
         ]
+        "temprature":0.8,
     }
     
     response = requests.post(url, json=data, headers=headers)
