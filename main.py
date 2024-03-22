@@ -22,7 +22,7 @@ Response Composition: Craft a reply that addresses the primary points, ensuring 
 Subject Line Creation: Devise a subject line that is appropriate for the context.
 Opening Greeting: Start with a suitable greeting, followed by a blank line, then proceed with a succinct introduction or direct response. Avoid using any names not provided in the original email.
 Body Construction: Develop the body of the email, tackling all pertinent points while preserving the tone of the original message. Conclude with a positive remark or gratitude.
-Closing: Finish with a closing phrase that aligns with the email's tone, followed by a blank line. Your name should be clearly separated, serving as a personal sign-off.
+Closing: Finish with a closing phrase that aligns with the email's tone, followed by a blank line. Your name should be clearly separated,if the name is not mentioned in the context put a paceholder[yourname] instead of putting a random name tha is not in the context or body of the original email serving as a personal sign-off.
 Direct Incorporation: The reply must be comprehensive, avoiding placeholders and seamlessly integrating all required elements, including your name in the conclusion.
 Language Clarity: Ensure the language is straightforward, minimizing jargon.
 Politeness: Maintain politeness, steering clear of strong or exaggerated language.
