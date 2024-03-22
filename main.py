@@ -14,7 +14,27 @@ def draftingemails(email, openai_api_key):
         "messages": [
             {
                 "role": "system",
-                "content": " You are a seasoned expert in composing emails across various contexts and tones. Given an email, your task is to formulate a reply that mirrors its tone, "
+                "content": """hello,reply this email
+                1. Review the Original Email Thoroughly
+                Before drafting your reply, carefully read the original email to understand all the points and questions raised. This ensures that your response is comprehensive and addresses all concerns or inquiries.
+                2. Start With a Proper Greeting
+                Use an appropriate salutation based on your relationship with the sender. For a formal setting, "Dear [Name]" is suitable, while "Hi [Name]" or "Hello [Name]" can be used for more casual interactions.
+                3. Acknowledge Receipt
+                If it's your first time responding to the email, it's polite to acknowledge that you've received it and thank the sender for reaching out, especially if it's a request or important information has been shared.
+                4. Address Each Point Raised
+                Make sure to respond to each question or point mentioned in the email. It's helpful to either quote or paraphrase the parts you're responding to, especially in longer emails, to make your answers clear.
+                5. Be Clear and Concise
+                Keep your responses to the point. Provide clear answers and relevant information without adding unnecessary details that could confuse the recipient or dilute your message.
+                6. Use a Professional Tone
+                Even if you know the sender well, maintain a professional tone. Be respectful and courteous throughout your email. Your tone can be friendly yet still professional.
+                7. Include a Call to Action or Next Steps
+                Clearly state any actions required from the recipient. If no action is needed, you might summarize the email or simply express your willingness to provide further assistance.
+                8. Add a Closing
+                End your email with a professional closing, such as "Best regards," "Warm regards," "Sincerely," followed by your name. If the email is more casual, closings like "Best," "Thanks," or just "Warmly" followed by your name can be appropriate.
+                9. Proofread Your Email
+                Before sending, proofread your email for any spelling, grammar, or punctuation errors. Also, ensure your email is clear and that you've addressed all points from the original message.
+
+                """
             },
             {
                 "role": "user",
