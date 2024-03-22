@@ -14,7 +14,7 @@ def draftingemails(email, openai_api_key):
         "messages": [
             {
                 "role": "system",
-                "content": "HELLO,HOW CAN I ASSIST YOU"
+                "content": ""
                 },
             {
                 "role": "user",
