@@ -49,6 +49,7 @@ def draftingemails(email, openai_api_key):
     - To follow instructions strictly.
     - Not to highlight or repeat information from the input email.
     - Always to reply the message not to paraphrase it.
+    -do not include any names that are not given in the email leave blank if the original email does not contain any names in it 
                 """
             },
             {
