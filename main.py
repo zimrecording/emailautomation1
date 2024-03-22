@@ -20,7 +20,9 @@ def draftingemails(email, openai_api_key):
                 },
             {
                 "role": "user",
-                "content": query
+                "content": query,
+                "temprature":0.8
+                
             }
         ]
     }
