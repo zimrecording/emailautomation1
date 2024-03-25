@@ -96,6 +96,7 @@ with c2:
             2.if the  reply:{reply}: contains surnames or any other additions to the name which are not in the original email:{sample_email}:  remove the surname or anny other additions on the name and leave the name as it is in the original email"""
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
+            st.info(reply)
             st.info(proccess_email)
         except Exception as e:
             st.error(f"An error occurred: {e}")
