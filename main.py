@@ -95,6 +95,7 @@ with c2:
             supervisor_prompt =f"Check  if the names  and surname in {sample_email} are the ones in {reply} if the  reply:{reply}: contains names which are not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned in the original email"
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
+            st.info(reply)
             st.info(proccess_email)
         except Exception as e:
             st.error(f"An error occurred: {e}")
