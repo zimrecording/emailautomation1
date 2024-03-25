@@ -2,7 +2,9 @@ import requests
 import json
 import streamlit as st
 
-def draftingemails(email, openai_api_key):
+supervisor_prompt =""
+email_generator =""
+def draftingemails(email, openai_api_key,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "ft:gpt-3.5-turbo-1106:personal:email2:95ARg6mi"
     
