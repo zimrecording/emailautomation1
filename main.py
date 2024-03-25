@@ -95,8 +95,15 @@ with c2:
             supervisor_prompt =f"Check  if the names  and surname in {sample_email} are the ones in {reply} if the  reply:{reply}: contains names which are not as there are and not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned as it is in the original email"
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
+
+            #prompt to check if the name in the salutation is found in the original email
+            final_draft_prompt = f"Check if the name in the salutation of {proccess_email} is found in {sample_email} if the following email:{proccess_email}: contains the name  in its salutation which is not same as the name found in the context of {sample_email} remove the name and put placeholder[yourname]"
+            
+            final_draft = draftingemails(sample_email,openai_api_key,final_draft_prompt)
             st.info(reply)
+
             st.info(proccess_email)
+            st.info(final_draft)
         except Exception as e:
             st.error(f"An error occurred: {e}")
     elif generate_reply_button and not openai_api_key:
