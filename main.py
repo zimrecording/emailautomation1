@@ -77,6 +77,45 @@ def draftingemails(email, openai_api_key,prompt):
     except Exception as e:
         return f"Error: An exception occurred - {str(e)}"
 
+#remove last line of email
+def emails(email, openai_api_key,prompt):
+    url = "https://api.openai.com/v1/chat/completions"
+    model_name = "gpt-3.5-turbo"
+    
+    headers = {
+        "Authorization": f"Bearer {openai_api_key}"
+    }
+    query = f"{email}"
+    data = {
+        "model": model_name,
+        "temperature": 0.4,
+        "messages": [
+            {
+                "role": "system",
+                "content": prompt,
+            },
+            {
+                "role": "user",
+                "content": query,
+            }
+        ]
+        
+    }
+    
+    response = requests.post(url, json=data, headers=headers)
+    if response.status_code != 200:
+        return f"Error: Received status code {response.status_code} from OpenAI API."
+
+    try:
+        information = response.json()
+        if 'choices' in information and information['choices']:
+            info = information['choices'][0]['message']['content']
+            return info
+        else:
+            return "Error: No choices found in the response."
+    except Exception as e:
+        return f"Error: An exception occurred - {str(e)}"
+
 st.set_page_config(layout="wide")
 st.markdown("<h1 style='text-align: center;'>EMAIL AUTOMATION</h1>", unsafe_allow_html=True)
 
@@ -136,7 +175,7 @@ with c2:
                             Your goal is to apply this procedure to any given email, ensuring the final line is seamlessly removed without impacting the coherence and flow of the remaining content.
                             """
             
-            FINAL = draftingemails(sample_email,openai_api_key,prompt)
+            FINAL = emails(sample_email,openai_api_key,prompt)
             
             st.info(reply)
 
