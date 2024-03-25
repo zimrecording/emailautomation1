@@ -150,7 +150,7 @@ with c2:
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     """
             #process the reply to check if it contains names that exist in original email
-            proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
+            proccess_email = emails(sample_email,openai_api_key,supervisor_prompt)
             prompt = f"""
                             As a skilled processor of email content, your task is to meticulously review emails and remove the last line from each one. This task requires precision and attention to the structure of the email to identify and eliminate the final line, ensuring the rest of the email remains intact and unaltered.
 
