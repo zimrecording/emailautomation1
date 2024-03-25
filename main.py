@@ -92,7 +92,25 @@ with c2:
         try:
             reply = draftingemails(sample_email, openai_api_key,email_generator)
             #prompt fsor checking names if there are correct
-            supervisor_prompt =f"YOU ARE AN EXPERT EMAIL VERIFY YOUR TASK IS TO:Check  if the names  and surname in {sample_email} appear as the ones in {reply} if the  reply:{reply}: contains names which are not as there are and not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned as it is in the original email"
+            # supervisor_prompt =f"YOU ARE AN EXPERT EMAIL VERIFY YOUR TASK IS TO:Check  if the names  and surname in {sample_email} appear as the ones in {reply} if the  reply:{reply}: contains names which are not as there are and not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned as it is in the original email"
+            supervisor_prompt =f"""
+                    As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
+
+                    - Compare the names in the reply email{reply} to those in the original email{sample_email}.
+                    - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed.
+                    - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
+
+                    For example:
+
+                    Original Email: "Hi Justin! I actually just finished listening to it. It's perfect. I'm going to start saving up for the next books of the series, as there's 3 left to convert, but it's a large sum so I'll work on setting it all aside once my current balance is paid off, which I'll be able to send you in a couple weeks."
+
+                    Reply Email: "Hi [Your Name], That's great to hear! We're thrilled that you're happy with the result. Looking forward to the next books in the series. We'll be here to help with the production when you're ready. Best regards, Justin Schiltman"
+
+                    Given this scenario, 'Schiltman' is not a name mentioned in the original email and thus should be removed from the reply, adjusting the name to 'Justin', as per the original email's reference.
+
+                    Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
+                    """
+
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
             
