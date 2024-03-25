@@ -138,8 +138,8 @@ with c2:
                     As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
 
                     - Compare the names in the reply email{reply} to those in the original email{sample_email}.
-                    - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed please input placeholder[yourname] if there are no names in the original email.
-                    - The goal is to ensure that the reply email only includes names that were present in the original email at their correct position replier name should not be confused with the sender name, maintaining a strict match.
+                    - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed please input placeholder[yourname].
+                    - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
 
                     For example:
 
