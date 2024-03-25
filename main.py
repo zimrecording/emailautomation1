@@ -77,7 +77,7 @@ def draftingemails(email, openai_api_key,prompt):
     except Exception as e:
         return f"Error: An exception occurred - {str(e)}"
 
-#remove last line of email
+#processing drafted email
 def emails(email, openai_api_key,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "gpt-3.5-turbo"
@@ -129,9 +129,11 @@ with c1:
 with c2:
     if generate_reply_button and openai_api_key:
         try:
+            #generate the first draft of the email
             reply = draftingemails(sample_email, openai_api_key,email_generator)
-            #prompt fsor checking names if there are correct
-            # supervisor_prompt =f"YOU ARE AN EXPERT EMAIL VERIFY YOUR TASK IS TO:Check  if the names  and surname in {sample_email} appear as the ones in {reply} if the  reply:{reply}: contains names which are not as there are and not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned as it is in the original email"
+
+            #process the first draft and remove any unessary information
+            #prompt for checking names if there are correct
             supervisor_prompt =f"""
                     As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
 
@@ -149,38 +151,11 @@ with c2:
 
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     """
-            #process the reply to check if it contains names that exist in original email
-            proccess_email = emails(sample_email,openai_api_key,supervisor_prompt)
-            prompt = f"""
-                            As a skilled processor of email content, your task is to meticulously review emails and remove the last line from each one. This task requires precision and attention to the structure of the email to identify and eliminate the final line, ensuring the rest of the email remains intact and unaltered.
-
-                            Procedure:
-
-                            - Read the content of the email:{proccess_email}: thoroughly.
-                            - Identify the last line of the email:{proccess_email}:. The 'last line' refers to any text following the final newline character that separates lines, including signatures, closing salutations, or any other text.
-                            - Remove this last line entirely from the email content, leaving all other parts of the email as they are.
-
-                            Example:
-
-                            Before processing:
-                            "Dear Team,
-                            I wanted to update you on our project timeline. We're making good progress and are on track to meet our deadline.
-                            Best regards,
-                            Jordan"
-
-                            After processing:
-                            "Dear Team,
-                            I wanted to update you on our project timeline. We're making good progress and are on track to meet our deadline."
-
-                            Your goal is to apply this procedure to any given email, ensuring the final line is seamlessly removed without impacting the coherence and flow of the remaining content.
-                            """
+            #process  the reply to check if it contains names that exist in original email
+            proccessed_email = emails(sample_email,openai_api_key,supervisor_prompt)
+            #output the cleaned email
+            st.info(proccessed_email)
             
-            FINAL = emails(sample_email,openai_api_key,prompt)
-            
-            st.info(reply)
-
-            st.info(proccess_email)
-            st.info(FINAL)
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
