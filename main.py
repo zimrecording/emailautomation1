@@ -91,9 +91,11 @@ with c2:
         try:
             reply = draftingemails(sample_email, openai_api_key,email_generator)
             #prompt fsor checking names if there are correct
-            supervisor_prompt =f"""You are an expert email verifying specialist, Your job is only to check  if the names  and surname in {sample_email} are the ones in {reply} if the  reply:{reply}: contains names which are not in the original email:{sample_email}: 
-            1. Remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned in the original email\n
-            2.if the  reply:{reply}: contains surnames or any other additions to the name which are not in the original email:{sample_email}:  remove the surname or anny other additions on the name and leave the name as it is in the original email"""
+            supervisor_prompt =f"""As an expert in verifying email content, your role involves checking the names and surnames in the original email, referred to as `{sample_email}`, against those in a response, `{reply}`. Follow these steps to manage discrepancies and confirm matches:
+                                    1. If `{reply}` contains names not present in `{sample_email}`, replace these additional names with the placeholder `[yourname]`.
+                                    2. If `{reply}` adds surnames or other modifications to a name not included in `{sample_email}`, remove these additions, leaving only the name as it appeared in `{sample_email}`.
+                                    3. If the names in `{reply}` exactly match those in `{sample_email}`, with no additional names or modifications, return the reply as is, indicating a perfect match."""
+
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
             st.info(reply)
