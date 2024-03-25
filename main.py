@@ -97,7 +97,7 @@ with c2:
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
 
             #prompt to check if the name in the salutation is found in the original email
-            final_draft_prompt = f"Check if the name in the salutation of {proccess_email} is found in {sample_email} if the following email:{proccess_email}: contains the name  in its salutation which is not same as the name found in the context of {sample_email} remove the name and put placeholder[yourname]"
+            final_draft_prompt =f"Remove the name in the last line of this email{proccess_email}"
             
             final_draft = draftingemails(sample_email,openai_api_key,final_draft_prompt)
             st.info(reply)
