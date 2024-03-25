@@ -91,7 +91,7 @@ with c2:
         try:
             reply = draftingemails(sample_email, openai_api_key,email_generator)
             #prompt fsor checking names if there are correct
-            supervisor_prompt =f"Check  if the names in {sample_email} are the ones in {reply} if the  reply:{reply}: contains names which are not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned in the original email"
+            supervisor_prompt =f"Check  if the names  and surname in {sample_email} are the ones in {reply} if the  reply:{reply}: contains names which are not in the original email:{sample_email}: remove the names and put placeholder [yourname] in the position of the name that wasn't mentioned in the original email\n if the  reply:{reply}: contains surnames or any other additions to the name  which are not in the original email:{sample_email}:  remove the surname or anny other additions on the name and leave the name as it is in the original email"
             #process the reply to check if it contains names that exist in original email
             proccess_email = draftingemails(sample_email,openai_api_key,supervisor_prompt)
             st.info(proccess_email)
