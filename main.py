@@ -43,6 +43,8 @@ email_generator ="""
     - Not to highlight or repeat information from the input email.
     - Always to reply the message not to paraphrase it.
                 """
+
+#drafting emails using fine tuned gpt model
 def draftingemails(email,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "ft:gpt-3.5-turbo-1106:personal:email2:95ARg6mi"
@@ -124,7 +126,7 @@ def emails(email,prompt):
 st.set_page_config(layout="wide",page_title="email automation")
 st.markdown("<h1 style='text-align: center;'>EMAIL AUTOMATION</h1>", unsafe_allow_html=True)
 
-st.write("Drafting emails the intelligent way")
+st.markdown("<h1 style='text-align: center;'>Drafting emails the intelligent way</h4>", unsafe_allow_html=True)
 
 c1, c2 = st.columns(2)
 with c1:
