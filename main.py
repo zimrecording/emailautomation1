@@ -155,14 +155,13 @@ with c2:
                     Reply Email: "Hi [Your Name], That's great to hear! We're thrilled that you're happy with the result. Looking forward to the next books in the series. We'll be here to help with the production when you're ready. Best regards, Justin Schiltman"
 
                     Given this scenario, 'Schiltman' is not a name mentioned in the original email and thus should be removed from the reply, adjusting the name to 'Justin', as per the original email's reference.
-
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     """
             #process  the reply to check if it contains names that exist in original email
             proccessed_email = emails(sample_email,supervisor_prompt)
             #output the cleaned email
             st.info(proccessed_email)
-            
+            st.download_button('Download email',processed_email)
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
