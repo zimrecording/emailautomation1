@@ -1,6 +1,10 @@
 import requests
 import json
 import streamlit as st
+import os
+
+#setup apikek
+API_KEY = st.secrets["API_KEY"]
 
 #prompt for drafting emails
 email_generator ="""
@@ -39,12 +43,12 @@ email_generator ="""
     - Not to highlight or repeat information from the input email.
     - Always to reply the message not to paraphrase it.
                 """
-def draftingemails(email, openai_api_key,prompt):
+def draftingemails(email,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "ft:gpt-3.5-turbo-1106:personal:email2:95ARg6mi"
     
     headers = {
-        "Authorization": f"Bearer {openai_api_key}"
+        "Authorization": f"Bearer {API_KEY}"
     }
     query = f"{email}"
     data = {
@@ -78,12 +82,12 @@ def draftingemails(email, openai_api_key,prompt):
         return f"Error: An exception occurred - {str(e)}"
 
 #processing drafted email
-def emails(email, openai_api_key,prompt):
+def emails(email,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "gpt-3.5-turbo"
     
     headers = {
-        "Authorization": f"Bearer {openai_api_key}"
+        "Authorization": f"Bearer {API_KEY}"
     }
     query = f"{email}"
     data = {
@@ -116,10 +120,11 @@ def emails(email, openai_api_key,prompt):
     except Exception as e:
         return f"Error: An exception occurred - {str(e)}"
 
-st.set_page_config(layout="wide")
+#------streamlit app---------
+st.set_page_config(layout="wide",page_title="email automation")
 st.markdown("<h1 style='text-align: center;'>EMAIL AUTOMATION</h1>", unsafe_allow_html=True)
 
-openai_api_key = st.text_input("Enter your OpenAI API Key", type="password")
+st.write("Drafting emails the intelligent way")
 
 c1, c2 = st.columns(2)
 with c1:
@@ -127,10 +132,10 @@ with c1:
     generate_reply_button = st.button("Generate Reply")
 
 with c2:
-    if generate_reply_button and openai_api_key:
+    if generate_reply_button:
         try:
             #generate the first draft of the email
-            reply = draftingemails(sample_email, openai_api_key,email_generator)
+            reply = draftingemails(sample_email,email_generator)
 
             #process the first draft and remove any unessary information
             #prompt for checking names if there are correct
@@ -152,13 +157,13 @@ with c2:
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     """
             #process  the reply to check if it contains names that exist in original email
-            proccessed_email = emails(sample_email,openai_api_key,supervisor_prompt)
+            proccessed_email = emails(sample_email,supervisor_prompt)
             #output the cleaned email
             st.info(proccessed_email)
             
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
-    elif generate_reply_button and not openai_api_key:
+    elif generate_reply_button:
         st.error("Please enter your OpenAI API Key to generate a reply.")
         
