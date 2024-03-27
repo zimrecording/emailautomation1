@@ -167,4 +167,3 @@ with c2:
             st.error(f"An error occurred: {e}")
     elif generate_reply_button:
         st.error("Please enter your OpenAI API Key to generate a reply.")
-        
