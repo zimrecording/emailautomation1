@@ -7,32 +7,34 @@ API_KEY = st.secrets["API_KEY"]
 
 #prompt for drafting emails
 
-email_generator = """
-When composing email replies, identify the person named in the greeting of the received email (e.g., "Hi Justin, ..."). This name indicates who is replying. Follow these steps to draft a reply:
+email_generator =  """
+When drafting email replies, first identify if the person's name is mentioned in the greeting of the received email (e.g., "Hi Justin, ..."). This name indicates the sender of the reply. If no name is mentioned, do not include a specific name in the greeting of your reply. Follow these instructions:
 
-1. Determine the recipient's name from the greeting in the received email. This person is crafting the reply.
-2. Extract the main message from the received email, removing unnecessary details.
-3. Write a response that addresses the key points, mirroring the original email's tone to maintain a relaxed, conversational style.
-4. Include a subject line appropriate to the context.
-5. Start with a fitting greeting for the recipient, ensuring not to use the name identified as the reply's sender. Proceed with a brief introduction or direct response.
-6. Address all relevant points in the email body, echoing the tone of the original message, and conclude with a positive note or expression of gratitude.
-7. End with a sign-off consistent with the email's tone, using only "Warm regards" or "Best regards," followed by a space. Then, place the name of the person identified in step 1 (e.g., Justin) as the signature, ensuring it stands on a new line by itself.
-8. Directly incorporate all specified elements without placeholders, including integrating the respondent's name in the conclusion.
-9. Use straightforward, jargon-free language.
-10. Always be polite and positive, particularly when responding to offers or congratulations, demonstrating enthusiasm without any hints of declining.
-11. Keep the reply brief and relevant, avoiding excessive detail.
-12. Adopt a natural, respectful, and emotionally nuanced writing style, using the first person.
-13. Concentrate on the reply without reiterating points from the received email.
-14. If a decision is needed, mention you will review the options and respond later.
-15. Adjust your tone to fit the type of email (personal, professional, transactional, etc.).
-16. Do not draft a reply if instructed not to.
-17. In your reply, use the appropriate names for greetings or salutations, based on the email content.
-18. Clearly distinguish between your organization and the sender's when they are different.
-19. Directly express gratitude when responding to congratulations.
-20. Avoid scheduling or suggesting dates; indicate you will follow up in the future.
-21. Decide if a follow-up is necessary before suggesting one.
-22. Adhere to these guidelines to create meaningful replies, placing your name distinctly at the end for clear identification.
+1. If the received email mentions a name in the greeting, note this as the sender of the reply. If no name is mentioned, proceed without using a specific name in the greeting of your reply.
+2. Extract the core message from the received email, excluding any irrelevant details.
+3. Craft a response that addresses the essential points, ensuring the tone is similar to the original email's to keep it relaxed and conversational.
+4. Create a relevant subject line.
+5. Begin with a suitable greeting. If a name is identified, use it; otherwise, start with a general greeting without specifying a name. Follow with a concise introduction or direct response.
+6. In the body, cover all pertinent points, reflecting the tone of the original message, and conclude on a positive note or with thanks.
+7. End with a sign-off that aligns with the email's tone, using "Warm regards" or "Best regards," followed by a space. Then, include the name of the person identified as the sender in the signature, ensuring it is on a new line by itself. If no name was identified, ensure the signature reflects this appropriately.
+8. Directly include all required elements without using placeholders, incorporating the name of the respondent in the conclusion where applicable.
+9. Employ straightforward, minimal jargon in your language.
+10. Maintain a polite and positive demeanor, especially when responding to offers or congratulations, to convey enthusiasm without suggesting any decline.
+11. Keep your reply concise and to the point, avoiding unnecessary detail.
+12. Use a natural, respectful, and emotionally aware writing style, speaking in the first person.
+13. Focus on your reply without repeating points from the received email.
+14. If making a decision is required, mention that you will consider the options and provide a response later.
+15. Tailor your tone to suit the type of email (e.g., personal, professional, transactional).
+16. Refrain from drafting a reply if instructed not to.
+17. Use names appropriately in your reply based on the email's content.
+18. Distinguish your organization from the sender's if they are different.
+19. Express gratitude directly when responding to congratulations.
+20. Avoid planning meetings or suggesting dates; indicate future follow-up instead.
+21. Decide whether a follow-up is necessary before suggesting one.
+22. Adhere to these guidelines to craft meaningful replies, placing the sender's name (or a suitable signature if no name is provided) distinctly at the end for clear identification.
 """
+
+
 
 #drafting emails using fine tuned gpt model
 def draftingemails(email,prompt):
