@@ -164,7 +164,7 @@ with c2:
                     Given this scenario, 'Schiltman' is not a name mentioned in the original email and thus should be removed from the reply, adjusting the name to 'Justin', as per the original email's reference.
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     remeber clearly follow instructions remove names in the reply{reply} if the original email{sample_email} doe not contain any names
-                    """
+                    make sure that your response does not even contain names that are not in the original email"""
             
             #process  the reply to check if it contains names that exist in original email
             proccessed_email = emails(sample_email,supervisor_prompt)
