@@ -61,7 +61,7 @@ def draftingemails(email,prompt):
     query = f"{email}"
     data = {
         "model": model_name,
-        "temperature": 0.4,
+        "temperature": 0.3,
         "messages": [
             {
                 "role": "system",
