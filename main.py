@@ -7,32 +7,32 @@ API_KEY = st.secrets["API_KEY"]
 
 #prompt for drafting emails
 
-email_generator =  """
-When drafting email replies, first identify if the person's name is mentioned in the greeting of the received email (e.g., "Hi Justin, ..."). This name indicates the sender of the reply. If no name is mentioned, do not include a specific name in the greeting of your reply. Follow these instructions:
+email_generator = """
+        Given an email, generate a reply that adheres to the following guidelines:
 
-1. If the received email mentions a name in the greeting, note this as the sender of the reply. If no name is mentioned, proceed without using a specific name in the greeting of your reply.
-2. Extract the core message from the received email, excluding any irrelevant details.
-3. Craft a response that addresses the essential points, ensuring the tone is similar to the original email's to keep it relaxed and conversational.
-4. Create a relevant subject line.
-5. Begin with a suitable greeting. If a name is identified, use it; otherwise, start with a general greeting without specifying a name. Follow with a concise introduction or direct response.
-6. In the body, cover all pertinent points, reflecting the tone of the original message, and conclude on a positive note or with thanks.
-7. End with a sign-off that aligns with the email's tone, using "Warm regards" or "Best regards," followed by a space. Then, include the name of the person identified as the sender in the signature, ensuring it is on a new line by itself. If no name was identified, ensure the signature reflects this appropriately.
-8. Directly include all required elements without using placeholders, incorporating the name of the respondent in the conclusion where applicable.
-9. Employ straightforward, minimal jargon in your language.
-10. Maintain a polite and positive demeanor, especially when responding to offers or congratulations, to convey enthusiasm without suggesting any decline.
-11. Keep your reply concise and to the point, avoiding unnecessary detail.
-12. Use a natural, respectful, and emotionally aware writing style, speaking in the first person.
-13. Focus on your reply without repeating points from the received email.
-14. If making a decision is required, mention that you will consider the options and provide a response later.
-15. Tailor your tone to suit the type of email (e.g., personal, professional, transactional).
-16. Refrain from drafting a reply if instructed not to.
-17. Use names appropriately in your reply based on the email's content.
-18. Distinguish your organization from the sender's if they are different.
-19. Express gratitude directly when responding to congratulations.
-20. Avoid planning meetings or suggesting dates; indicate future follow-up instead.
-21. Decide whether a follow-up is necessary before suggesting one.
-22. Adhere to these guidelines to craft meaningful replies, placing the sender's name (or a suitable signature if no name is provided) distinctly at the end for clear identification.
-"""
+        1. **Parse the Email:** Extract key information, including main requests or questions, specific details (dates, names, events), and the tone (formal, informal).
+        2. **Identify Names and Roles:**
+        - **Sender:** Determine the name of the individual who wrote the email, using it if explicitly mentioned, or inferring it from the email address or sign-off.
+        - **Recipient:** Identify the intended recipient(s) of the reply, adjusting based on context. Use placeholders like [YourName] for the sender and [RecipientName] for the recipient(s) if names are unclear or not mentioned.
+
+        **Reply Composition:**
+        - **Addressing:** Address the recipient by name if known, or use a general greeting if not.
+        - **Acknowledgement:** Acknowledge the content of the received email, summarizing or referencing key points.
+        - **Response Content:** Answer questions, provide requested information, state next steps, or request further information as needed.
+        - **Closing:** Conclude with a courteous sign-off, including the name of the person replying if known, or [YourName] as a placeholder.
+
+        **Self-Consistency Mechanism:** Craft each reply as a standalone response, ensuring it is contextually appropriate for the specific email it addresses.
+
+        **Name and Placeholder Handling:** Dynamically insert correct names where appropriate. Use placeholders for the sender ([YourName]) and recipient ([RecipientName]) where names are not clear. Avoid using the recipient's name as the sender in the reply.
+
+        Instructions for AI:
+        - Analyze the content and context of the incoming email.
+        - Craft a response following the above guidelines, ensuring it is appropriately personalized and context-aware.
+        """
+
+# This variable contains the detailed instructions for generating an email reply.
+# It includes guidelines for parsing the email, identifying names and roles, composing the reply,
+# ensuring self-consistency, and handling names and placeholders.
 
 
 
