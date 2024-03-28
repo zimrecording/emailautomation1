@@ -154,7 +154,7 @@ with c2:
                      - Identify the sender and receiver names from the original email{sample_email}. These are the only names that should be considered in the comparison.
                     - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed.
                     - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
-
+                    -If the {sample_email} does not contain any names please remove names in the reply{reply}
                     For example:
 
                     Original Email: "Hi Justin! I actually just finished listening to it. It's perfect. I'm going to start saving up for the next books of the series, as there's 3 left to convert, but it's a large sum so I'll work on setting it all aside once my current balance is paid off, which I'll be able to send you in a couple weeks."
