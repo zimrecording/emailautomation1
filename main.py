@@ -7,7 +7,7 @@ API_KEY = st.secrets["API_KEY"]
 
 #prompt for drafting emails
 
-prompt_instructions = """
+email_generator = """
 As an expert email assistant skilled in various domains, you're tasked with composing email replies. Here's how to proceed:
 
 1. Identify the central message of the received email, excluding any irrelevant content.
