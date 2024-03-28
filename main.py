@@ -16,7 +16,7 @@ email_generator = """
         - **Recipient:** Identify the intended recipient(s) of the reply, adjusting based on context. Use placeholders like [YourName] for the sender and [RecipientName] for the recipient(s) if names are unclear or not mentioned.
 
         **Reply Composition:**
-        - **Addressing:** Address the recipient by name if known, or use a general greeting if not.
+        - **Addressing:** Address the recipient by name if known, or use [YourName]if not mentioned in the given email.
         - **Acknowledgement:** Acknowledge the content of the received email, summarizing or referencing key points.
         - **Response Content:** Answer questions, provide requested information, state next steps, or request further information as needed.
         - **Closing:** Conclude with a courteous sign-off, including the name of the person replying if known, or [YourName] as a placeholder.
