@@ -147,40 +147,24 @@ with c2:
 
             #process the first draft and remove any unessary information
             #prompt for checking names if there are correct
-            # supervisor_prompt =f"""
-            #         As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
+            supervisor_prompt =f"""
+                    As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
 
-            #         - Compare the names in the reply email{reply} to those in the original email{sample_email}.
-            #         - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed.
-            #         - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
+                    - Compare the names in the reply email{reply} to those in the original email{sample_email}.
+                     - Identify the sender and receiver names from the original email{sample_email}. These are the only names that should be considered in the comparison.
+                    - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed.
+                    - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
 
-            #         For example:
+                    For example:
 
-            #         Original Email: "Hi Justin! I actually just finished listening to it. It's perfect. I'm going to start saving up for the next books of the series, as there's 3 left to convert, but it's a large sum so I'll work on setting it all aside once my current balance is paid off, which I'll be able to send you in a couple weeks."
+                    Original Email: "Hi Justin! I actually just finished listening to it. It's perfect. I'm going to start saving up for the next books of the series, as there's 3 left to convert, but it's a large sum so I'll work on setting it all aside once my current balance is paid off, which I'll be able to send you in a couple weeks."
 
-            #         Reply Email: "Hi [Your Name], That's great to hear! We're thrilled that you're happy with the result. Looking forward to the next books in the series. We'll be here to help with the production when you're ready. Best regards, Justin Schiltman"
+                    Reply Email: "Hi [Your Name], That's great to hear! We're thrilled that you're happy with the result. Looking forward to the next books in the series. We'll be here to help with the production when you're ready. Best regards, Justin Schiltman"
 
-            #         Given this scenario, 'Schiltman' is not a name mentioned in the original email and thus should be removed from the reply, adjusting the name to 'Justin', as per the original email's reference.
-            #         Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
-            #         """
-            supervisor_prompt = """
-                    As an expert in ensuring the accuracy and integrity of email communications, your primary task is to ensure that the names used in a reply email correspond only to the sender and receiver names mentioned in the original email. Here's how to proceed:
-
-                    - **Objective:** The aim is to compare the names used in the reply email with the sender and receiver names from the original email. Ensure that only these names are retained in the reply, applying placeholders where the original email lacks clear sender and receiver names.
-
-                    - **Process:**
-                    1. Identify the sender and receiver names from the original email. These are the only names that should be considered in the comparison.
-                    2. Review the reply email for names. If a name does not match the sender or receiver from the original email, it should be substituted with [YourName] for sender or [RecipientName] for the receiver.
-
-                    - **Example Scenario:**
-                    - Original Email: "Dear Casey, The project update meeting is scheduled for next Wednesday. Please prepare the latest status report. Regards, Alex."
-                    - Reply Email: "Hi Alex, Thanks for the update. I'll have the report ready by Tuesday. Cheers, Casey."
-
-                    In this scenario, the reply email correctly uses "Alex" and "Casey," aligning with the names mentioned in the original email. If there were any additional names in the reply not present as sender or receiver in the original, they should be replaced with the appropriate placeholder [YourName] or [RecipientName].
-
-                    This focused approach ensures that email replies maintain a direct and relevant connection to the original email, using only the names of the individuals directly involved in the communication.
+                    Given this scenario, 'Schiltman' is not a name mentioned in the original email and thus should be removed from the reply, adjusting the name to 'Justin', as per the original email's reference.
+                    Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     """
-
+            
             #process  the reply to check if it contains names that exist in original email
             proccessed_email = emails(sample_email,supervisor_prompt)
             #output the cleaned email
