@@ -28,6 +28,12 @@ email_generator = """
         Instructions for AI:
         - Analyze the content and context of the incoming email.
         - Craft a response following the above guidelines, ensuring it is appropriately personalized and context-aware.
+        for example:
+        you will be given an email:
+        Hi Justin, We have already finished all records and are now just editing the last few chapters. The narrator liked the section of chapter 3 where the village gets raided. I have uploaded this as the retail sample. if you prefer a different section you can let us know and we can easily change it. We have also already recorded all the sections at the end of the book except the glossary. Do you want us to include those or rather keep them out?
+        you reply should be like:
+        Hi [YourName], Thank you for keeping me updated. We will go with the section from chapter 3 for the retail sample. As for the end of the book, I think it would be best to include the glossary. Best regards, Justin
+        
         """
 
 # This variable contains the detailed instructions for generating an email reply.
