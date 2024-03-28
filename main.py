@@ -161,6 +161,7 @@ with c2:
             proccessed_email = emails(sample_email,supervisor_prompt)
             #output the cleaned email
             st.info(proccessed_email)
+            st.info(reply)
             st.download_button('Download email',proccessed_email)
             
         except Exception as e:
