@@ -100,7 +100,7 @@ def emails(email,prompt):
     query = f"{email}"
     data = {
         "model": model_name,
-        "temperature": 0.4,
+        "temperature": 0.6,
         "messages": [
             {
                 "role": "system",
@@ -151,7 +151,7 @@ with c2:
                     As an expert in ensuring the accuracy and integrity of email communications, your task is to scrutinize a reply email for adherence to the names mentioned in the original email. The process is as follows:
 
                     - Compare the names in the reply email{reply} to those in the original email{sample_email}.
-                     - Identify the sender and receiver names from the original email{sample_email}. These are the only names that should be considered in the comparison.
+                    - Identify the sender and receiver names from the original email{sample_email}. These are the only names that should be considered in the comparison.
                     -make sure that on your response the snder name in original is the receiver name i reply
                     - If the reply:{reply}: contains names that were not mentioned in the original email:{sample_email}:, these names are to be considered extraneous and should be removed.
                     - The goal is to ensure that the reply email only includes names that were present in the original email, maintaining a strict match.
@@ -166,7 +166,7 @@ with c2:
                     Implement this protocol, ensuring that all names in the reply email perfectly align with those mentioned in the original email, making adjustments where necessary to uphold this standard.
                     REMEBER:
                      - clearly follow instructions remove names in the reply{reply} if the original email{sample_email} does not contain any names
-                    - make sure that your response does not even contain names that are not in the original email taking note of the example"""
+                     - make sure that your response does not even contain sender and receiver names that are not in the original email taking note of the example"""
             
             #process  the reply to check if it contains names that exist in original email
             proccessed_email = emails(sample_email,supervisor_prompt)
