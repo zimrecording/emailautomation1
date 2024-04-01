@@ -10,7 +10,7 @@ def load_csv_file(file_path):
     return df
 
 # Load the CSV file
-csv_file_path = "output.csv"
+csv_file_path = "integrated/output.csv"
 df = load_csv_file(csv_file_path)
 
 # Function to perform FuzzyWuzzy search and return the query and its corresponding "SENT" message
