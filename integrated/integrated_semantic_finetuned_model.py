@@ -211,7 +211,7 @@ with cols[1]:
     st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C'>{}</div>".format(f"QUERY: {query}\nMESSAGE PAIR: {message_pair}"), unsafe_allow_html=True)
 
 with cols[2]:
-    openai_api_key = "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" # Replace with your actual OpenAI API key
+    openai_api_key = st.secrets["openai_key"]
     drafted_email = draftingemails(sample_email, openai_api_key)
     if drafted_email.startswith("Error"):
         st.markdown("<h3 style='text-align: center;'>GPT Output:</h3>", unsafe_allow_html=True)
