@@ -14,7 +14,7 @@ csv_file_path = "integrated/output.csv"
 df = load_csv_file(csv_file_path)
 
 # Function to perform FuzzyWuzzy search and return the query and its corresponding "SENT" message
-def semantic_search(query, limit=1, score_cutoff=85):
+def semantic_search(query, limit=1, score_cutoff=80):
     best_match = process.extractOne(query, df['RECEIVED'], score_cutoff=score_cutoff)
     if isinstance(best_match, tuple) and len(best_match) >= 2:
         matched_text, score, *_ = best_match
