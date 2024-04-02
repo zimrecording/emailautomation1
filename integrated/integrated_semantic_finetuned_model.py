@@ -14,8 +14,8 @@ csv_file_path = "integrated/output.csv"
 df = load_csv_file(csv_file_path)
 
 # Function to perform FuzzyWuzzy search and return the query and its corresponding "SENT" message
-def semantic_search(query, limit=1):
-    best_match = process.extractOne(query, df['RECEIVED'])
+def semantic_search(query, limit=1, score_cutoff=85):
+    best_match = process.extractOne(query, df['RECEIVED'], score_cutoff=score_cutoff)
     if isinstance(best_match, tuple) and len(best_match) >= 2:
         matched_text, score, *_ = best_match
         matched_row = df[df['RECEIVED'] == matched_text]
@@ -208,7 +208,7 @@ query, message_pair = semantic_search(sample_email)
 
 with cols[1]:
     st.markdown("<h3 style='text-align: center;'>Query and Message Pair:</h3>", unsafe_allow_html=True)
-    st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C'>{}</div>".format(f"QUERY: {query}\nMESSAGE PAIR: {message_pair}"), unsafe_allow_html=True)
+    st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C'>{}</div>".format(f"<span style='color: yellow;'>QUERY: {query}\nMESSAGE PAIR: {message_pair}</span>"), unsafe_allow_html=True)
 
 with cols[2]:
     openai_api_key = st.secrets["openai_key"]
@@ -219,4 +219,4 @@ with cols[2]:
     else:
         final_email = emails(sample_email, drafted_email)
         st.markdown("<h3 style='text-align: center;'>Final Email:</h3>", unsafe_allow_html=True)
-        st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C'>{}</div>".format(final_email), unsafe_allow_html=True)
+        st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C,color:yellow'>{}</div>".format(final_email), unsafe_allow_html=True)
