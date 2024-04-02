@@ -219,4 +219,4 @@ with cols[2]:
     else:
         final_email = emails(sample_email, drafted_email)
         st.markdown("<h3 style='text-align: center;'>Final Email:</h3>", unsafe_allow_html=True)
-        st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C,color:yellow'>{}</div>".format(final_email), unsafe_allow_html=True)
+        st.markdown("<div style='height: 400px; overflow: auto; border: 0px solid #e0e0e0; padding: 10px;background-color:#2C2C2C;color:yellow'>{}</div>".format(final_email), unsafe_allow_html=True)
