@@ -92,7 +92,7 @@ with c2:
 
             #output the cleaned email
             st.info(reply)
-            st.download_button('Download email',proccessed_email)
+            st.download_button('Download email',reply)
             
         except Exception as e:
             st.error(f"An error occurred: {e}")
