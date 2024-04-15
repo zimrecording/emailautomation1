@@ -8,24 +8,25 @@ API_KEY = st.secrets["API_KEY"]
 #prompt for drafting emails
 
 def create_email_reply_prompt(input_email, tone=None, specific_instructions=None):
-    # Start building the prompt with the main instruction and input email
+    # Begin with the email that needs a reply
     prompt = f"**Input Email:**\n```\n{input_email}\n```\n"
 
-    # Add the optional tone if specified
+    # If there's a tone requested, note it clearly
     if tone:
-        prompt += f"**Tone:** {tone}\n"
+        prompt += f"**Tone to use:**\n- Use a {tone} tone when replying.\n"
 
-    # Add specific instructions if provided
+    # List any special directions if they are given
     if specific_instructions:
-        prompt += "**Specific Instructions:**\n"
+        prompt += "**Special Directions:**\n"
         for instruction in specific_instructions:
-            prompt += f"- {instruction}\n"
+            prompt += f"- Make sure to {instruction}.\n"
 
-    # Append the task for GPT-3
-    prompt += "\n**Task:**\nGenerate a concise, clear, and contextually appropriate reply to the email above. "
-    prompt += "The response should directly address any questions or points raised in the input email "
-    prompt += "while adhering to the specified tone and incorporating any specific instructions provided. "
-    prompt += "Ensure the reply maintains professional decorum and is appropriately structured for clarity and ease of understanding."
+    # Describe the task to be done by the AI
+    prompt += "\n**Task:**\nWrite a reply to the email above. "
+    prompt += "The reply should be short, clear, and right to the point. "
+    prompt += "Answer any questions or mention important points from the email. "
+    prompt += "Follow the tone and any special directions given. "
+    prompt += "Make sure the reply is easy to read, polite, and well-organized."
 
     return prompt
 
