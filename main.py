@@ -33,7 +33,7 @@ def create_email_reply_prompt(input_email, tone=None, specific_instructions=None
 
 
 #drafting emails using fine tuned gpt model
-def draftingemails(prompt):
+def draftingemails(email,prompt):
     url = "https://api.openai.com/v1/chat/completions"
     model_name = "ft:gpt-3.5-turbo-0125:personal:email3:9D7VhSGz"
     
@@ -88,7 +88,7 @@ with c2:
         try:
             #generate the first draft of the email
             email_reply_prompt = create_email_reply_prompt(sample_email)
-            reply = draftingemails(email_reply_prompt)
+            reply = draftingemails(sampe_email,email_reply_prompt)
 
             #output the cleaned email
             st.info(reply)
