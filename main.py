@@ -76,8 +76,8 @@ with c2:
     if generate_reply_button:
         try:
             #generate the first draft of the email
-            email_reply_prompt = create_email_reply_prompt(sample_email)
-            reply = draftingemails(sample_email,email_reply_prompt)
+            
+            reply = draftingemails(sample_email,PROMPT)
 
             #output the cleaned email
             st.info(reply)
