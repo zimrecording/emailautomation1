@@ -88,7 +88,7 @@ with c2:
         try:
             #generate the first draft of the email
             email_reply_prompt = create_email_reply_prompt(sample_email)
-            reply = draftingemails(sampe_email,email_reply_prompt)
+            reply = draftingemails(sample_email,email_reply_prompt)
 
             #output the cleaned email
             st.info(reply)
