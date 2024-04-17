@@ -45,7 +45,7 @@ best regards,\n\n
 
 """
 
-API_KEY = "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"
+API_KEY = st.secrets["API_KEY"]
 #define models to be used
 email_generator_model = "ft:gpt-3.5-turbo-0125:personal:email3:9D7VhSGz"
 email_formater = "gpt-3.5-turbo"
