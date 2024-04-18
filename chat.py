@@ -66,7 +66,7 @@ best regards,"\n\n"
 
 API_KEY = st.secrets["API_KEY"]
 #define models to be used
-email_generator_model = "ft:gpt-3.5-turbo-0125:personal:email3:9D7VhSGz"
+email_generator_model = "gpt-3.5-turbo"
 email_formater = "gpt-3.5-turbo"
 # Streamed response emulator
 def response_generator(email,prompt,model):
