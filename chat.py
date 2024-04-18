@@ -50,15 +50,16 @@ PROMPTS = {
     """
 }
 #email formatter propmt
-email_formatter_prompt ="""As an eperienced Email Formatting specialist,You are being tasked to format an email using a standard professional layout.
+email_formatter_prompt ="""As an eperienced Email Formatting specialist,You are being tasked with formatting an email using a standard professional layout.
 The email should include  an appropriate greeting,a coherent body paragraph, a polite closing.
 Ensure that the content is well-organized and the language reflects clarity and professionalism.
 do not insert subject 
 make sure to skip a line after greeting and also after paragraph
 for example the format should be like below:
-hi,[name]\n\n
-[email body]\n\n
-best regards,\n\n
+hi,[name]"\n\n"
+[email body]"\n\n"
+best regards,"\n\n"
+[sender name]
 
 
 """
