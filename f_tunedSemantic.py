@@ -42,7 +42,7 @@ PROMPTS = {
     """
 }
 
-API_KEY = "sk-proj-CdoEanydOjbFHxNoCA1sT3BlbkFJg500xrXbgBbHdNcUZlmL"
+API_KEY = st.secrets["API_KEY"]
 email_generator_model = "ft:gpt-3.5-turbo-0125:personal:email3:9D7VhSGz"
 email_formatter_model = "gpt-3.5-turbo"
 
