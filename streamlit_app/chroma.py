@@ -94,7 +94,7 @@ def load_text_from_pdf(file_path):
         text += page.get_text()
     return text
 
-file_path = "C:/Users/Mai Bhubhu/Desktop/setup/datasheet.pdf"
+file_path = "datasheet.pdf"
 data = load_text_from_pdf(file_path)
 
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0, separators=["\n\n", "\n", "(?<=\. )", " "], length_function=len)
