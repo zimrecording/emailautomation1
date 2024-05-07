@@ -3,3 +3,4 @@ fitz
 requests
 langchain
 langchain_openai
+chromadb
