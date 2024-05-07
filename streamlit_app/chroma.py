@@ -7,7 +7,7 @@ import fitz
 import requests
 import streamlit as st
 
-API_KEY = "api_key"
+API_KEY = st.secrets["API_KEY"]
 response_formatter_model = "gpt-3.5-turbo"
 PROMPTS = {
     "Salesperson":"""
