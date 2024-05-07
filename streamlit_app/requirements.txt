@@ -4,3 +4,4 @@ requests
 langchain
 langchain_openai
 chromadb
+sqlite3
